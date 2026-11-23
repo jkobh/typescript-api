@@ -1,0 +1,39 @@
+{
+  "name": "coffee-machine-api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "REST-API für Kaffeemaschinen mit Hono, Drizzle und PostgreSQL",
+  "packageManager": "pnpm@12.23.0",
+  "engines": {
+    "node": ">=26.13.1"
+  },
+  "scripts": {
+    "start": "node --env-file=.env src/server.ts",
+    "dev": "node --env-file=.env --watch src/server.ts",
+    "format": "oxfmt",
+    "lint": "oxlint",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm format && pnpm lint && pnpm typecheck",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v",
+    "db:schema": "bash scripts/db-schema.sh",
+    "db:pull": "bash scripts/db-pull.sh",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@hono/node-server": "2.1.11",
+    "drizzle-orm": "0.45.4",
+    "hono": "4.13.21",
+    "pg": "8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "@types/pg": "8.23.1",
+    "drizzle-kit": "0.31.11",
+    "oxfmt": "0.80.0",
+    "oxlint": "1.95.0",
+    "typescript": "7.0.2"
+  }
+}
