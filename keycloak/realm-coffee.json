@@ -1,0 +1,59 @@
+{
+  "realm": "coffee",
+  "displayName": "Coffee Machine API",
+  "enabled": true,
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "accessTokenLifespan": 300,
+  "roles": {
+    "realm": [
+      {
+        "name": "admin",
+        "description": "Darf geschuetzte Methoden der Kaffee-API aufrufen"
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "demo",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Demo",
+      "lastName": "Benutzer",
+      "email": "demo@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "demo",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["admin"]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "coffee-api",
+      "name": "Coffee Machine API",
+      "description": "Nur fuer die lokale Entwicklung gedacht, Secret ist kein Geheimnis",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "coffee-api-dev-secret",
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "implicitFlowEnabled": false,
+      "rootUrl": "https://localhost:8443",
+      "baseUrl": "/",
+      "redirectUris": ["https://localhost:8443/*"],
+      "webOrigins": ["https://localhost:8443"],
+      "attributes": {
+        "post.logout.redirect.uris": "https://localhost:8443/*"
+      }
+    }
+  ]
+}
