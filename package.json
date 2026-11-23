@@ -2,12 +2,8 @@
   "name": "coffee-machine-api",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "description": "REST-API für Kaffeemaschinen mit Hono, Drizzle und PostgreSQL",
-  "packageManager": "pnpm@12.23.0",
-  "engines": {
-    "node": ">=26.13.1"
-  },
+  "type": "module",
   "scripts": {
     "start": "node --env-file=.env src/server.ts",
     "dev": "node --env-file=.env --watch src/server.ts",
@@ -35,5 +31,9 @@
     "oxfmt": "0.80.0",
     "oxlint": "1.95.0",
     "typescript": "7.0.2"
-  }
+  },
+  "engines": {
+    "node": ">=26.13.1"
+  },
+  "packageManager": "pnpm@12.23.0"
 }

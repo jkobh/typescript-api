@@ -69,12 +69,12 @@ pnpm start                # Server auf https://localhost:8443
 
 Noch ohne Routen: der Server antwortet mit `404`, aber bereits über HTTP/2 und TLS.
 
-| Komponente | URL / Zugang |
-|---|---|
-| API | <https://localhost:8443> (HTTP/2, selbstsigniertes Zertifikat) |
-| Keycloak | <http://localhost:8080> — Admin `admin` / `admin` |
-| PostgreSQL | `localhost:5432` — User `coffee`, Passwort `coffee`, DB `coffee_machine` |
-| Drizzle Studio | `make db-studio` — <https://local.drizzle.studio> |
+| Komponente     | URL / Zugang                                                             |
+| -------------- | ------------------------------------------------------------------------ |
+| API            | <https://localhost:8443> (HTTP/2, selbstsigniertes Zertifikat)           |
+| Keycloak       | <http://localhost:8080> — Admin `admin` / `admin`                        |
+| PostgreSQL     | `localhost:5432` — User `coffee`, Passwort `coffee`, DB `coffee_machine` |
+| Drizzle Studio | `make db-studio` — <https://local.drizzle.studio>                        |
 
 Realm `coffee` mit Client `coffee-api` (confidential), Rolle `admin` und User `demo` / `demo`
 wird beim Container-Start aus `keycloak/realm-coffee.json` importiert.
@@ -87,20 +87,20 @@ müssen ihm einmalig vertrauen (`curl -k`).
 Das **Makefile** reicht jedes Ziel 1:1 an ein pnpm-Skript durch. Beide Wege sind gleichwertig,
 `make` ist nur eine Abkürzung.
 
-| Make-Ziel | pnpm-Skript | Zweck |
-|---|---|---|
-| `make start` | `pnpm start` | Server starten |
-| `make dev` | `pnpm dev` | Server mit `--watch` starten |
-| `make format` | `pnpm format` | `oxfmt` formatiert alle Dateien |
-| `make lint` | `pnpm lint` | `oxlint` prüft alle Dateien |
-| `make typecheck` | `pnpm typecheck` | `tsc --noEmit` prüft die Typen |
-| `make check` | `pnpm check` | format, lint und typecheck nacheinander |
-| `make db-up` | `pnpm db:up` | Container starten |
-| `make db-down` | `pnpm db:down` | Container stoppen (Daten bleiben) |
-| `make db-reset` | `pnpm db:reset` | Container stoppen und Volume verwerfen |
-| `make db-schema` | `pnpm db:schema` | SQL-Schema nachträglich einspielen |
-| `make db-pull` | `pnpm db:pull` | `schema.mts` und `relations.mts` neu erzeugen |
-| `make db-studio` | `pnpm db:studio` | Drizzle Studio öffnen |
+| Make-Ziel        | pnpm-Skript      | Zweck                                         |
+| ---------------- | ---------------- | --------------------------------------------- |
+| `make start`     | `pnpm start`     | Server starten                                |
+| `make dev`       | `pnpm dev`       | Server mit `--watch` starten                  |
+| `make format`    | `pnpm format`    | `oxfmt` formatiert alle Dateien               |
+| `make lint`      | `pnpm lint`      | `oxlint` prüft alle Dateien                   |
+| `make typecheck` | `pnpm typecheck` | `tsc --noEmit` prüft die Typen                |
+| `make check`     | `pnpm check`     | format, lint und typecheck nacheinander       |
+| `make db-up`     | `pnpm db:up`     | Container starten                             |
+| `make db-down`   | `pnpm db:down`   | Container stoppen (Daten bleiben)             |
+| `make db-reset`  | `pnpm db:reset`  | Container stoppen und Volume verwerfen        |
+| `make db-schema` | `pnpm db:schema` | SQL-Schema nachträglich einspielen            |
+| `make db-pull`   | `pnpm db:pull`   | `schema.mts` und `relations.mts` neu erzeugen |
+| `make db-studio` | `pnpm db:studio` | Drizzle Studio öffnen                         |
 
 `make check` **ändert** Dateien: `oxfmt` schreibt das Format, `oxlint` meldet nur.
 
